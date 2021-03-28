@@ -9,6 +9,7 @@ sys.path.insert(2, './mel.procedures')
 import os
 import json
 import melPropertiesFile
+from mel.services
 
 from melJsonParser import melJsonParser
 from melCsvParser import melCsvParser

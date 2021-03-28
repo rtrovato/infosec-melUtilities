@@ -16,9 +16,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-from melPropertiesFile import melSendMailReview_CONFIG
+import melPropertiesFile 
 from melSMTPProvider import melSMTPProvider
-
 
 
 class melSendMail:
@@ -27,9 +26,9 @@ class melSendMail:
         pass
     
     def sendMail(self, manager):
-        messageFile = melSendMailReview_CONFIG['path']
-        messageFile = messageFile+melSendMailReview_CONFIG['eMailReview.txt']
-        subject     = melSendMailReview_CONFIG['subject']
+        messageFile = melPropertiesFile.melSendMailReview_CONFIG['path']
+        messageFile = messageFile+melPropertiesFile.melSendMailReview_CONFIG['eMailReview.txt']
+        subject     = melPropertiesFile.melSendMailReview_CONFIG['subject']
         sender =  os.environ['sender']
         to =  "ricardo.trovato@gmail.com"
         try:
