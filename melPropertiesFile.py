@@ -21,7 +21,7 @@ melSMTPProvider_CONFIG = {
     'server':'smtp.gmail.com',
     'port':'587',
     'sender': emailSender,
-    'password': emailPasswd
+    'passwd': emailPasswd
    
 }
 

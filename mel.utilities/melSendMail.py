@@ -20,7 +20,11 @@ from melPropertiesFile import melSendMailReview_CONFIG
 from melSMTPProvider import melSMTPProvider
 
 
+
 class melSendMail:
+    
+    def _init_(self): 
+        pass
     
     def sendMail(self, manager):
         messageFile = melSendMailReview_CONFIG['path']
