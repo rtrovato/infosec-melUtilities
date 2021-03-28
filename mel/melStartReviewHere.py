@@ -7,6 +7,7 @@ import melPropertiesFile
 
 from mel.services.melJsonParser import melJsonParser
 from mel.services.melCsvParser import melCsvParser
+from mel.services.melSendMail import melSendMail
 
 
 def __main__(): 
@@ -26,9 +27,11 @@ def getDBtoReview():
     melUserManager  = melCsvParser.getSingleCsvFile("", pathcsv, filenamecsv)
     
     for i in (melDBtoReview):
-        for u in (UserManager):
+        for u in (melUserManager):
             pass
-
+        
+    melSendMail.sendMail("","ricardo.trovato@gmail.com","BANCO_VENDAS","ULTRACONFIDENCIAL","msgerr")
+    
 
 if __name__ == "__main__":
     

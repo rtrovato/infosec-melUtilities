@@ -3,12 +3,16 @@ import sys
 import mimetypes
 import base64
 import os
+import csv 
 
+# Bibliotecas importante para o envio de emails
 from email.mime.audio import MIMEAudio
 from email.mime.base import MIMEBase
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from apiclient import errors
+from string import Template
 
 
 import melPropertiesFile 
@@ -21,12 +25,16 @@ class melSendMail:
     def _init_(self): 
         pass
     
-    def sendMail(self, manager):
-        messageFile = melPropertiesFile.melSendMailReview_CONFIG['path']
-        messageFile = messageFile+melPropertiesFile.melSendMailReview_CONFIG['fileName']
-        subject     = melPropertiesFile.melSendMailReview_CONFIG['subject']
-        sender =  os.environ['emailSender']
-        to =  "ricardo.trovato@gmail.com"
+    def sendMail(self, to, nomebanco, classificacao, arquivo):
+        messageFile     = melPropertiesFile.melSendMailReview_CONFIG['path']
+        messageFile     = messageFile+melPropertiesFile.melSendMailReview_CONFIG[arquivo]
+        subject         = melPropertiesFile.melSendMailReview_CONFIG['subject']
+        sender          = melPropertiesFile.melSendMailReview_CONFIG['sender']
+        to              = to
+        nomebanco       = nomebanco
+        classificacao   = classificacao
+        
+        
         try:
             with open (messageFile, 'r', encoding='utf-8') as csv_file: 
                 csv_reader = Template(csv_file.read())
@@ -34,23 +42,17 @@ class melSendMail:
         except Exception as e:
             print(str(e))
             
-            
-        service = melSMTPProvider.getSMTPConnection("")
-        
-        body = csv_reader.substitute(nomebanco="CARTAO", classificacao="CONFIDENCIAL")
+       
         try:
+            service = melSMTPProvider.getSMTPConnection("")
+            body = csv_reader.substitute(nomebanco=nomebanco, classificacao=classificacao)
             message = MIMEMultipart()
             message['to'] = to
-            message['from'] = "Comunicado Infosec"+os.environ['sender']
+            message['from'] = "Comunicado Infosec"+sender
             message['subject'] = subject
             message.attach(MIMEText(body, 'html'))
-            mensagem ={'raw': base64.urlsafe_b64encode(message.as_string().encode('utf-8')).decode('utf-8')}
-            resultado = (service.users().messages().send(sender=sender, body=mensagem).execute())
-            del message
+            service.sendmail(sender, to, message.as_string())
+            
         except errors.HttpError as error:
             print (str(error))
             
-if __name__ == "__main__":
-    melSendMail.sendMail("","Ricardo Trovato")
-    
-    

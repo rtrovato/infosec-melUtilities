@@ -27,8 +27,10 @@ melSMTPProvider_CONFIG = {
 
 melSendMailReview_CONFIG = { 
     'path' :'/melDesafio/input/',
-    'fileName':'eMailReview.txt',
-    'subject':'Revisao de Classificacao da Informacao'
+    'msgok':'melMessageReview.html',
+    'msgerr':'melMessageErro.html',
+    'subject':'Revisao de Classificacao da Informacao',
+    'sender' : emailSender
    
 }
 
