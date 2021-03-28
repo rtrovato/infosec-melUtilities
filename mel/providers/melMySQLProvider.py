@@ -20,7 +20,8 @@ class melMySQLProvider:
                                                     user=mysqlAccount,\
                                                     passwd=mysqlPasswd,\
                                                     database=mysqlDataBase)
-            return db_connection
+            cursor = db_connection.cursor()
+            return cursor
         
         except Exception as e: 
             print (str(e))
