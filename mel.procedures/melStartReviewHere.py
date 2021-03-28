@@ -1,25 +1,22 @@
-from iamHumanResourcesPerson import iamHumanResourcesPerson 
-from iamLdapAccount import iamLdapAccount
+
+# IMPORTANT TO CREATE A RELATIVE PATH FOR PROJECT
+import sys 
+sys.path.insert(0, '../mel.utils.providers')
+sys.path.insert(1, '../mel.utilities')
+sys.path.insert(2, '../mel.procedures')
+
+#STARTED PROGRAM HERE
 import os
-import iamLdapAccount
 import json
-from iamUtilsProvider import iamUtilsProvider
+from mel
 
-''' Hi I m the IAM Onboarding Orquestrator when I work I do: 
-    1. Get new users from ORis - iamHumaResourcesPerson
+
+''' Hi I m the Review Database Orquestrator when I am wokring   I do: 
+    1. Create Database collection from json and to be reviewd 
+        a. I Need melDatabaseObj to create melDatabase Class  
     2. After received users from step 1  I request to my friends :
-        a. iamLdapAccount 
-        b. iam GSuiteAccount 
-        c. iamActiveDirectory 
-    
-    to create the new account from our 99ners employees. 
-    
-    3. If everything is fine I register a log on my friend MySQL request help to iamutilsProvider.
 
-    If you need me please type on commandline py iamOnboardingStartHere <action> that can be: 
-        a. onboardingUsers
-        b. offboardingUsers
-        c. updateUsers
+   
     '''
 
 def __main__(): 
