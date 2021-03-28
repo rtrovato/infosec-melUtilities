@@ -1,8 +1,10 @@
 import os
 try: 
     
-    emailSender = os.environ['emailSender']
-    emailPasswd = os.environ['emailPasswd']
+    emailSender     = os.environ['emailSender']
+    emailPasswd     = os.environ['emailPasswd']
+    mysqlAccount    = os.environ['mysqlAccount']
+    mysqlPasswd     = os.environ['mysqlPasswd']
     
 except Exception as e: 
     print("Variaves emailSender e emailPasswd nao configuradas" )
@@ -31,6 +33,15 @@ melSendMailReview_CONFIG = {
     'msgerr':'melMessageErro.html',
     'subject':'Revisao de Classificacao da Informacao',
     'sender' : emailSender
+   
+}
+
+melMYSQLConn_CONFIG = { 
+    'server':'localhost',
+    'port':'3306',
+    'mysqlAccount': mysqlAccount,
+    'mysqlPasswd': mysqlPasswd,
+    'mysqlDatabase':'melproject'
    
 }
 
