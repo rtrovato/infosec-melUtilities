@@ -8,9 +8,10 @@ sys.path.insert(2, './mel.procedures')
 #STARTED PROGRAM HERE
 import os
 import json
-from melJsonParser import melJsonParser
 import melPropertiesFile
 
+from melJsonParser import melJsonParser
+from melCsvParser import melCsvParser
 
 def __main__(): 
     try: 
@@ -19,15 +20,20 @@ def __main__():
         print (str(e))
 
 def getDBtoReview(): 
-    path =      melPropertiesFile.melStartReviewHere_CONFIG ['path']
-    fileName =  melPropertiesFile.melStartReviewHere_CONFIG ['fileName']
+    pathjson =      melPropertiesFile.melStartReviewHereJSON_CONFIG ['path']
+    filenamejson =  melPropertiesFile.melStartReviewHereJSON_CONFIG ['fileName']
     
-    melDBtoReview   = melJsonParser.getSingleJsonFile ("", path, fileName)
-    melUserManager  = melcsvParser.getSingleCsvFile("")
+    pathcsv =      melPropertiesFile.melStartReviewHereCSV_CONFIG ['path']
+    filenamecsv =  melPropertiesFile.melStartReviewHereCSV_CONFIG ['fileName']
+    
+    melDBtoReview   = melJsonParser.getSingleJsonFile ("", pathjson, filenamejson)
+    melUserManager  = melCsvParser.getSingleCsvFile("", pathcsv, filenamecsv)
     
     for i in (melDBtoReview):
-        pass
-       
+        for u in (UserManager):
+            pass
+
+
 if __name__ == "__main__":
     
     __main__()

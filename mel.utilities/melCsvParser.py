@@ -9,17 +9,16 @@ sys.path.insert(2, '../mel.procedures')
 
 import os 
 import melPropertiesFile
-from melJsonProvider import melJsonProvider
+from melCsvProvider import melCsvProvider
 import json
 
-class melJsonParser: 
+class melCsvParser: 
     def _init_ (self):
-        
         pass
 
-    def getSingleJsonFile (self, path, fileName): 
-        melJsonFile = melJsonProvider.getJsonFile(path, fileName)
-        return melJsonFile
+    def getSingleCsvFile (self, path, fileName): 
+        melCsvFile = melCsvProvider.getCsvFile(path, fileName)
+        return melCsvFile
 
     
 
