@@ -1,13 +1,8 @@
 # IMPORTANT TO CREATE A RELATIVE PATH FOR PROJECT
 import sys 
-sys.path.insert(0, '../mel.utils.providers')
-sys.path.insert(1, '../mel.utilities')
-sys.path.insert(2, '../mel.procedures')
-
 import mimetypes
 import base64
 import os
-from apiclient import errors
 
 from email.mime.audio import MIMEAudio
 from email.mime.base import MIMEBase
@@ -17,7 +12,8 @@ from email.mime.text import MIMEText
 
 
 import melPropertiesFile 
-from melSMTPProvider import melSMTPProvider
+from mel.providers.melSMTPProvider import melSMTPProvider
+
 
 
 class melSendMail:
@@ -27,9 +23,9 @@ class melSendMail:
     
     def sendMail(self, manager):
         messageFile = melPropertiesFile.melSendMailReview_CONFIG['path']
-        messageFile = messageFile+melPropertiesFile.melSendMailReview_CONFIG['eMailReview.txt']
+        messageFile = messageFile+melPropertiesFile.melSendMailReview_CONFIG['fileName']
         subject     = melPropertiesFile.melSendMailReview_CONFIG['subject']
-        sender =  os.environ['sender']
+        sender =  os.environ['emailSender']
         to =  "ricardo.trovato@gmail.com"
         try:
             with open (messageFile, 'r', encoding='utf-8') as csv_file: 
@@ -39,7 +35,7 @@ class melSendMail:
             print(str(e))
             
             
-        service = melSMTPProvider.getSMTPConnection()
+        service = melSMTPProvider.getSMTPConnection("")
         
         body = csv_reader.substitute(nomebanco="CARTAO", classificacao="CONFIDENCIAL")
         try:

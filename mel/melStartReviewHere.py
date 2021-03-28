@@ -1,18 +1,13 @@
 
-# IMPORTANT TO CREATE A RELATIVE PATH FOR PROJECT
 import sys 
-sys.path.insert(0, './mel.utils.providers')
-sys.path.insert(1, './mel.utilities')
-sys.path.insert(2, './mel.procedures')
-
-#STARTED PROGRAM HERE
 import os
 import json
 import melPropertiesFile
-from mel.services
 
-from melJsonParser import melJsonParser
-from melCsvParser import melCsvParser
+
+from mel.services.melJsonParser import melJsonParser
+from mel.services.melCsvParser import melCsvParser
+
 
 def __main__(): 
     try: 
