@@ -1,7 +1,9 @@
-import mysql.connector
-import os 
 
+import os 
+import ssl
 import melPropertiesFile
+
+import mysql.connector
 
 class melMySQLProvider: 
     def _init_():
@@ -17,13 +19,12 @@ class melMySQLProvider:
             db_connection = mysql.connector.connect(host=mysqlServer,\
                                                     user=mysqlAccount,\
                                                     passwd=mysqlPasswd,\
-                                                    database=mysqlDataBase,\
-                                                    use_pure=True)
-        
+                                                    database=mysqlDataBase)
             return db_connection
         
         except Exception as e: 
             print (str(e))
+            
 if __name__ == "__main__":
     ctx = melMySQLProvider.getMySQLConnection("")
 

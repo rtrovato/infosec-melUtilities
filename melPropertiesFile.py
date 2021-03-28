@@ -37,7 +37,7 @@ melSendMailReview_CONFIG = {
 }
 
 melMYSQLConn_CONFIG = { 
-    'server':'localhost',
+    'server':'127.0.0.1',
     'port':'3306',
     'mysqlAccount': mysqlAccount,
     'mysqlPasswd': mysqlPasswd,
