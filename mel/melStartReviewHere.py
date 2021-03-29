@@ -34,7 +34,6 @@ def getDBtoReview():
     melSendMail.sendMail("","ricardo.trovato@gmail.com","BANCO_VENDAS","ULTRACONFIDENCIAL","msgok")
     melDBReviewResult.setReviewResult("")
     
-    
 
 if __name__ == "__main__":
     
