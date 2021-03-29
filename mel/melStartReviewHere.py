@@ -8,6 +8,7 @@ import melPropertiesFile
 from mel.services.melJsonParser import melJsonParser
 from mel.services.melCsvParser import melCsvParser
 from mel.services.melSendMail import melSendMail
+from mel.services.melDBReviewResult import melDBReviewResult
 
 
 def __main__(): 
@@ -30,7 +31,9 @@ def getDBtoReview():
         for u in (melUserManager):
             pass
         
-    melSendMail.sendMail("","ricardo.trovato@gmail.com","BANCO_VENDAS","ULTRACONFIDENCIAL","msgerr")
+    melSendMail.sendMail("","ricardo.trovato@gmail.com","BANCO_VENDAS","ULTRACONFIDENCIAL","msgok")
+    melDBReviewResult.setReviewResult("")
+    
     
 
 if __name__ == "__main__":
