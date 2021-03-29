@@ -6,14 +6,21 @@ class melDBFuncionarios:
         pass
     def getFuncionario(self):
         try: 
+            selecionar = "select * from mel_funcionarios"
             ctx = melMySQLProvider.getMySQLConnection("")
-            selecionar = "SELECT * FROM mel_funcionarios"
-            ctx.execute(selecionar)
+            cur=ctx.cursor()
+            cur.execute(selecionar)
+            results = cur.fetchall()
+            
+            return results
+            
         except Exception as e: 
             print (str(e))
 
 if __name__ == "__main__":
     obj = melDBFuncionarios.getFuncionario ("")
+    for i in obj:
+        print (str(i))
     
     
     
