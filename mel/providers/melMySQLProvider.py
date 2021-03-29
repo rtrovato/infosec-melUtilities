@@ -1,9 +1,9 @@
 
 import os 
 import ssl
-import melPropertiesFile
-
 import mysql.connector
+
+from mel.config import melPropertiesFile
 
 class melMySQLProvider: 
     def _init_():

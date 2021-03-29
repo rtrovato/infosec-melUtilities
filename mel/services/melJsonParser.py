@@ -1,7 +1,7 @@
 
 import sys 
 import os 
-import melPropertiesFile
+from mel.config import melPropertiesFile
 import json
 from mel.providers.melJsonProvider import melJsonProvider
 

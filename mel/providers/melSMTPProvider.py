@@ -1,8 +1,7 @@
 # IMPORTANT TO CREATE A RELATIVE PATH FOR PROJECT
 import sys 
 import smtplib, ssl
-import melPropertiesFile
-
+from mel.config import melPropertiesFile
 
 class melSMTPProvider:
     def _init_ (self):

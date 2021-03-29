@@ -15,7 +15,7 @@ from apiclient import errors
 from string import Template
 
 
-import melPropertiesFile 
+from mel.config import melPropertiesFile
 from mel.providers.melSMTPProvider import melSMTPProvider
 
 

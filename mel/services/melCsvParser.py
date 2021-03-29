@@ -2,7 +2,7 @@
 import sys 
 import os 
 import json
-import melPropertiesFile
+from mel.config import melPropertiesFile
 from mel.providers.melCsvProvider import melCsvProvider
 
 

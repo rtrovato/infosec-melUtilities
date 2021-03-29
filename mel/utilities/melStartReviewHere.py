@@ -2,9 +2,8 @@
 import sys 
 import os
 import json
-import melPropertiesFile
 
-
+from mel.config import melPropertiesFile
 from mel.services.melJsonParser import melJsonParser
 from mel.services.melCsvParser import melCsvParser
 from mel.services.melSendMail import melSendMail
