@@ -15,9 +15,7 @@ class melSMTPProvider:
             passwd      = melPropertiesFile.melSMTPProvider_CONFIG['passwd']
             context = ssl.create_default_context()
             server = smtplib.SMTP(smtp_server, port)
-            server.ehlo()
             server.starttls(context=context)
-            server.ehlo()
             server.login(sender, passwd)
 
             return server

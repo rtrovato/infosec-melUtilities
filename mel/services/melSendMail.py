@@ -25,12 +25,14 @@ class melSendMail:
     def _init_(self): 
         pass
     
-    def sendMail(self, to, nomebanco, classificacao, arquivo):
+    def sendMail(self, db_review_id, to, nomebanco, classificacao, arquivo):
+                       
         messageFile     = melPropertiesFile.melSendMailReview_CONFIG['path']
         messageFile     = messageFile+melPropertiesFile.melSendMailReview_CONFIG[arquivo]
         subject         = melPropertiesFile.melSendMailReview_CONFIG['subject']
         sender          = melPropertiesFile.melSendMailReview_CONFIG['sender']
         to              = to
+        nrRevisao       = db_review_id
         nomebanco       = nomebanco
         classificacao   = classificacao
         
@@ -45,11 +47,11 @@ class melSendMail:
        
         try:
             service = melSMTPProvider.getSMTPConnection("")
-            body = csv_reader.substitute(nomebanco=nomebanco, classificacao=classificacao)
+            body = csv_reader.substitute(numerorevisao=nrRevisao, nomedobanco=nomebanco, classificacao=classificacao)
             message = MIMEMultipart()
             message['to'] = to
-            message['from'] = "Comunicado Infosec"+sender
-            message['subject'] = subject
+            message['from'] = "Infosec"+sender
+            message['subject'] = subject + "-" + nrRevisao
             message.attach(MIMEText(body, 'html'))
             service.sendmail(sender, to, message.as_string())
             

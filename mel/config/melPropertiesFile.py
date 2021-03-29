@@ -9,6 +9,10 @@ try:
 except Exception as e: 
     print("Variaves emailSender e emailPasswd nao configuradas" )
 
+melStartReview_CONFIG = { 
+    'revisorpadrao':'ricardo.trovato@gmail.com'
+}
+
 melStartReviewHereJSON_CONFIG = { 
     'path':'/melDesafio/input/',
     'fileName':'databases.json'
