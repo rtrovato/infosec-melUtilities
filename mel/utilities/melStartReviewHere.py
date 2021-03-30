@@ -8,7 +8,7 @@ from mel.services.melJsonParser import melJsonParser
 from mel.services.melCsvParser import melCsvParser
 from mel.services.melSendMail import melSendMail
 ## from mel.services.melDBReviewResult import melDBReviewResult
-from mel.services.melDataControl import Funcionario, Hierarquia, Revisao
+from mel.services.melDataControl import Funcionario, Revisao
 
 def __main__(): 
     try:
